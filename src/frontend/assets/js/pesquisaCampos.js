@@ -85,23 +85,23 @@ function exibir(filtro) {
     .then((res) => res.json())
     .then((data) => {
       // Mapeia os dados do campo para criar elementos de cartão e armazenar informações
-      campos = data.map((campo) => {
-        if (campo.tipo === filtro || filtro === "") {
+      campos = data.map((variaveis) => {
+        if (variaveis.tipo === filtro || filtro === "") {
           // Preenche os elementos do DOM com as informações da tabela
           const card = template.content.cloneNode(true).children[0];
           const tipo = card.querySelector("[data-tipo]");
           const nome = card.querySelector("[data-nome]");
           const desc = card.querySelector("[data-desc]");
-          tipo.textContent = campo.tipo;
-          nome.textContent = campo.nome;
-          desc.textContent = campo.descricao;
+          tipo.textContent = variaveis.tipo_campo;
+          nome.textContent = variaveis.nome_campo;
+          desc.textContent = variaveis.descricao_campo;
           container.append(card);
 
           // Retorna um objeto com as informações do campo
           return {
-            tipo: campo.tipo,
-            nome: campo.nome,
-            descricao: campo.descricao,
+            tipo: variaveis.tipo_campo,
+            nome: variaveis.nome_campo,
+            descricao: variaveis.descricao_campo,
             element: card,
           };
         }

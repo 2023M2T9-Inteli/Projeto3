@@ -151,12 +151,16 @@ app.post("/atualizar", urlencodedParser, (req, res) => {
   });
 });
 
+// SELECT nome_campo, descricao_campo, tipo_campo FROM variaveis
+
 /*********** ENDPOINTS DE CAMPOS ***********/
 // Endpoint que lista todos os campos que estao em uma tabela
 app.get("/campos", (req, res) => {
   res.statusCode = 200;
   res.setHeader("Access-Control-Allow-Origin", "*");
-  const sql = `SELECT nome, descricao, tipo FROM campo`;
+  const sql = `SELECT tabela.id_bd, variaveis.nome_campo, variaveis.descricao_campo, variaveis.tipo_campo
+  FROM tabela
+  INNER JOIN variaveis ON tabela.id_bd = variaveis.id_variaveis`;
   db.all(sql, [], (err, rows) => {
     if (err) {
       console.error(err.message);

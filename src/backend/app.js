@@ -58,9 +58,10 @@ app.get("/", (req, res) => {
 app.get("/informacoesTabela", (req, res) => {
   // Obtém o ID da tabela da query string
   const idTabela = req.query.id;
+  const idBd = req.query.id_bd
 
   // Renderize o arquivo EJS e envie a resposta com os dados da tabela
-  res.render("html/informacoesTabela", { idTabela });
+  res.render("html/informacoesTabela", { idTabela, idBd });
 });
 
 /********************* ENDPOINTS DA TABELA ********************/
@@ -155,12 +156,12 @@ app.post("/atualizar", urlencodedParser, (req, res) => {
 
 /*********** ENDPOINTS DE CAMPOS ***********/
 // Endpoint que lista todos os campos que estao em uma tabela
-app.get("/campos", (req, res) => {
+app.get("/campos", async (req, res) => {
   res.statusCode = 200;
+  const idBd = req.query.id_bd
+  console.log(idBd);
   res.setHeader("Access-Control-Allow-Origin", "*");
-  const sql = `SELECT tabela.id_bd, variaveis.nome_campo, variaveis.descricao_campo, variaveis.tipo_campo
-  FROM tabela
-  INNER JOIN variaveis ON tabela.id_bd = variaveis.id_variaveis`;
+  const sql = `SELECT nome_campo, descricao_campo, tipo_campo FROM variaveis WHERE id_variaveis LIKE '%${idBd}%'`;
   db.all(sql, [], (err, rows) => {
     if (err) {
       console.error(err.message);
@@ -261,7 +262,6 @@ app.get("/favoritos/inserirTabela", urlencodedParser, (req, res) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   let data = new Date().toLocaleDateString("pt-BR"); // data atual
   const sql = `INSERT INTO favorito (data, id_usuario, id_tabela) VALUES ('${data}', '1', '${req.query.id_tabela}' )`;
-  console.log(sql);
   db.run(sql, [], (err) => {
     if (err) {
       throw err;

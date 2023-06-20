@@ -4,6 +4,15 @@ const container = document.querySelector("[data-container]");
 const inputPesquisaCampos = document.querySelector("[data-input-pesquisa]");
 const filtroInput = document.querySelector("#tipo-campo");
 
+let urlCampos = new URL(window.location.href);
+let paramsCampos = urlCampos.searchParams;
+
+// Obtém o valor do parâmetro "id" que está na URL
+let idBd = paramsCampos.get('id_bd');
+
+// Cria uma nova URL com base no "id" da tabela caputrado acima
+urlCampos = '/campos?id_bd=' + idBd;
+
 // Armazena os dados dos campos
 let campos = [];
 
@@ -81,12 +90,12 @@ inputPesquisaCampos.addEventListener("input", (e) => {
 function exibir(filtro) {
   container.innerHTML = ''
   // Realiza uma requisição fetch e inicializa o Fuse.js
-  fetch("/campos")
+  fetch(urlCampos)
     .then((res) => res.json())
     .then((data) => {
       // Mapeia os dados do campo para criar elementos de cartão e armazenar informações
       campos = data.map((variaveis) => {
-        if (variaveis.tipo === filtro || filtro === "") {
+        if (variaveis.tipo_campo === filtro || filtro === "") {
           // Preenche os elementos do DOM com as informações da tabela
           const card = template.content.cloneNode(true).children[0];
           const tipo = card.querySelector("[data-tipo]");
@@ -106,8 +115,24 @@ function exibir(filtro) {
           };
         }
       });
+      filtroInput.innerHTML = options
       // Inicializa o Fuse.js com os dados do campo
       inicializaFuze(campos);
     });
 }
 exibir("")
+
+fetch(urlCampos)
+.then(res => res.json())
+.then(data => {
+    var lastOptions = []
+    var options = '<option value="tipo-campo" class="secao-conteudo__div-pesquisa__select__opcao">Tipo Campo</option>'
+
+    data.map(variaveis => {
+        if(!lastOptions.includes(variaveis.tipo_campo)) {
+            options += `<option value="${variaveis.tipo_campo}" class="secao-conteudo__div-pesquisa__select__opcao">${variaveis.tipo_campo}</option>`
+            lastOptions.push(variaveis.tipo_campo)
+        }
+    })
+    filtroInput.innerHTML = options
+}) 

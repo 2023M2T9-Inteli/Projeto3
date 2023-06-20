@@ -158,9 +158,7 @@ app.post("/atualizar", urlencodedParser, (req, res) => {
 app.get("/campos", (req, res) => {
   res.statusCode = 200;
   res.setHeader("Access-Control-Allow-Origin", "*");
-  const sql = `SELECT tabela.id_bd, variaveis.nome_campo, variaveis.descricao_campo, variaveis.tipo_campo
-  FROM tabela
-  INNER JOIN variaveis ON tabela.id_bd = variaveis.id_variaveis`;
+  const sql = `SELECT nome_campo, descricao_campo, tipo_campo FROM variaveis WHERE id_variaveis LIKE '%${req.query.id_bd}%'`;
   db.all(sql, [], (err, rows) => {
     if (err) {
       console.error(err.message);

@@ -246,7 +246,6 @@ fetch("/favoritos/ids")
       const desc = card.querySelector("[data-desc]");
       const origem = card.querySelector("[data-origem]");
       const idTabela = card.querySelector("[data-id-tabela]");
-      const idBd = card.querySelector("[data-id-bd]");
       const idTabelaFavorito = card.querySelector("[data-id-tabela-favorito]");
       const divDado = card.querySelector('[data-icone-sensivel]');
       const dadoSensivel = card.querySelector('[data-sensivel]');
@@ -259,7 +258,6 @@ fetch("/favoritos/ids")
       desc.textContent = tabela.descricao;
       origem.textContent = tabela.database;
       idTabela.value = tabela.id;
-      idBd.value = tabela.id_bd;
       idTabelaFavorito.value = tabela.id;
       dadoSensivel.value = tabela.dado_sensivel;
       verificacao.value = tabela.verificacao_governanca;

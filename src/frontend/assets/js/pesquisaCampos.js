@@ -12,13 +12,6 @@ let fuse;
 
 let filtro = "";
 
-// Obtém os parâmetros da URL atual
-let url = new URL(window.location.href);
-let params = url.searchParams;
-
-// Obtém o valor do parâmetro "id" que está na URL
-let idBd = params.get('id_bd');
-
 // Monitora a mudança do filtro de campos
 filtroInput.onchange = (event) => {
   // caso o valor selecionado for igual a "tipo-campo" significa que nenhum campo foi selecionado
@@ -88,7 +81,7 @@ inputPesquisaCampos.addEventListener("input", (e) => {
 function exibir(filtro) {
   container.innerHTML = ''
   // Realiza uma requisição fetch e inicializa o Fuse.js
-  fetch(`/campos?id_bd=${idBd}`)
+  fetch("/campos")
     .then((res) => res.json())
     .then((data) => {
       // Mapeia os dados do campo para criar elementos de cartão e armazenar informações

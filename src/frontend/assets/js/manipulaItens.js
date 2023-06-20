@@ -33,9 +33,8 @@ $(document).ready(function () {
   $(document).on('click', '.secao-tabelas__lista__item__div-paragrafo', function (event) {
     // Obtém o ID da tabela associado ao item clicado
     var idTabela = $(this).find('[data-id-tabela]').val();
-    var idBd = $(this).find('[data-id-bd]').val();
     console.log('ID da tabela clicada:', idTabela);
-    var url = 'informacoesTabela?id=' + idTabela + "&id_bd=" + idBd;
+    var url = 'informacoesTabela?id=' + idTabela;
     // Redireciona para a URL com base no ID da tabela
     window.location.href = url;
   });

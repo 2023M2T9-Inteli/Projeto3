@@ -4,11 +4,9 @@ let params = url.searchParams;
 
 // Obtém o valor do parâmetro "id" que está na URL
 let idTabela = params.get('id');
-let idBd = params.get('id_bd');
-console.log(idBd);
 
 // Cria uma nova URL com base no "id" da tabela caputrado acima
-url = '/tabela?id=' + idTabela + '&id_bd=' + idBd;
+url = '/tabela?id=' + idTabela;
 
 // Obtém os elementos do DOM que serão preenchidos com as informações da tabela
 const voltar = document.querySelector('.cabecalho__div-voltar__imagem');
@@ -71,5 +69,3 @@ function guarda(valor) {
 }
 // Armazena o valor do id da tabela no campo "id_tabela"
 document.getElementById('id_tabela').value = idTabela;
-document.getElementById('id_bd').value = idBd;
-

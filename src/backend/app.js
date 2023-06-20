@@ -169,21 +169,6 @@ app.get("/campos", (req, res) => {
   });
 });
 
-/*********** ENDPOINTS DE VISAO GERAL ***********/
-//Endpoint de listagem das informacoes de cada tabela
-app.get("/visaogeral", (req, res) => {
-  res.statusCode = 200;
-  res.setHeader("Access-Control-Allow-Origin", "*");
-  sql = `SELECT * FROM tabela WHERE id='${req.query.id}'`;
-  console.log(sql);
-  db = new sqlite3.Database(DBPATH);
-  db.all(sql, [], (err, rows) => {
-    if (err) {
-      throw err;
-    }
-    res.json(rows);
-  });
-});
 
 /*********** ENDPOINTS DE FAVORITOS ***********/
 //Endpoint que lista todos os favoritos

@@ -805,6 +805,8 @@ input.secao-botoes__input:checked + .secao-botoes__label {
   margin-right: 3rem;
 }
 
+
+/* Tela de Feedback */
 .secao-conteudo-feedback {
   display: flex;
   flex-direction: column;
@@ -896,9 +898,11 @@ input.secao-botoes__input:checked + .secao-botoes__label {
   padding: 5px;
   border-radius: 5px;
 }
+
 .secao-feedback__icone:hover .tooltip {
   visibility: visible;
 }
+
 .secao-feedback__icone:hover {
   cursor: pointer;
 }
@@ -924,12 +928,14 @@ input.secao-botoes__input:checked + .secao-botoes__label {
   align-items: center;
   margin-top: 3rem;
 }
+
 .secao-feedback__div-botao {
   display: flex;
   align-items: center;
   justify-content: center;
   margin-top: 2rem;
 }
+
 
 /* Tela de Favoritos */
 .secao-pesquisa-favoritos {
@@ -938,7 +944,6 @@ input.secao-botoes__input:checked + .secao-botoes__label {
   align-items: center;
   justify-content: center;
 }
-
 
 .input-favoritos {
   margin-top: .5rem;
@@ -1034,6 +1039,8 @@ input.secao-botoes__input:checked + .secao-botoes__label {
   color: #000000;
 }
 
+
+/* Pop-up de solicitação */
 .pop-up {
   display: none;
   position: absolute;
@@ -1121,6 +1128,7 @@ input.secao-botoes__input:checked + .secao-botoes__label {
 }
 
 
+/* Filtros de pesquisa */
 .secao-pesquisa__div-filtro {
   grid-template-columns: auto auto auto;
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25); 
@@ -1151,6 +1159,7 @@ input.secao-botoes__input:checked + .secao-botoes__label {
   box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+/* Estilizações para o modo escuro */
 :root {
   --azul: #4DA9FF;
   --azul2: #4DA9FF;

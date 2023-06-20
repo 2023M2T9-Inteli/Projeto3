@@ -34,15 +34,14 @@ $(document).ready(function () {
     // Obtém o ID da tabela associado ao item clicado
     var idTabela = $(this).find('[data-id-tabela]').val();
     var idBd = $(this).find('[data-id-bd]').val();
-    console.log('ID da tabela clicada:', idTabela);
     var url = 'informacoesTabela?id=' + idTabela + "&id_bd=" + idBd;
     // Redireciona para a URL com base no ID da tabela
     window.location.href = url;
   });
 
+  // Evento acionado quando o botão de favorito é clicado
   $(document).on('click', '.secao-tabelas__lista__item__div-informacoes__div-icones__botao-favorito', function (event) {
     var idTabelaFavorito = $(this).find('[data-id-tabela-favorito]').val();
-    console.log('ID da tabela clicada:', idTabelaFavorito);
     var url = '/favoritos/inserirTabela?id_tabela=' + idTabelaFavorito;
     window.location.href = url;
   });
@@ -72,20 +71,6 @@ $(document).ready(function () {
       // Aplica a altura calculada
       elemento.css('height', alturaElemento + 'px');
     }
-  });
-
-  window.addEventListener('load', function() {
-
-  });
-  
-
-  window.addEventListener('load', function() {
-    // Obtém a altura do elemento <main>
-    var mainElement = document.getElementById('myMain');
-    var mainHeight = mainElement.offsetHeight;
-    
-    // Aplica a altura calculada
-    mainElement.style.height = mainHeight + 'px';
   });
 
   $(document).on('click', '#feedback', function (event) {
@@ -124,20 +109,6 @@ $(document).ready(function () {
   botaoEditar.forEach((botao) => {
     // Adiciona um evento de clique para cada botão de edição
     botao.addEventListener("click", () => {
-      // Armazena os valores decada input de acordo com o ID 
-      const descricao = document.getElementById("descricao").value;
-      const conjuntoDados = document.getElementById("conjunto-dados").value;
-      const owner = document.getElementById("owner").value;
-      const steward = document.getElementById("steward").value;
-      const ativo = document.getElementById("ativo").value;
-      const tipoAtivo = document.getElementById("tipo-ativo").value;
-      const database = document.getElementById("database").value;
-      const caminhoTabela= document.getElementById("caminho-tabela").value;
-      const ultimaAtualizacao= document.getElementById("ultima-atualizacao").value;
-      const dataCriacao = document.getElementById("data-criacao").value;
-      const defasagem = document.getElementById("defasagem").value;
-      const frequenciaAtualizacao = document.getElementById("frequencia-atualizacao").value;
-      const engenheiroIngestao = document.getElementById("engenheiro-ingestao").value;
       
       // Armazena o pop-up de edição
       const popUp = document.getElementById("editar-pop-up");

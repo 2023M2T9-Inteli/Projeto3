@@ -4,7 +4,10 @@ const container = document.querySelector("[data-container]");
 const inputPesquisaCampos = document.querySelector("[data-input-pesquisa]");
 const filtroInput = document.querySelector("#tipo-campo");
 
+// Armazena a URL atual
 let urlCampos = new URL(window.location.href);
+
+// Armazena os parâmetros da URL
 let paramsCampos = urlCampos.searchParams;
 
 // Obtém o valor do parâmetro "id" que está na URL
@@ -19,6 +22,7 @@ let campos = [];
 // Armazena o objeto Fuse.js
 let fuse;
 
+// Armazena o valor do filtro de campos
 let filtro = "";
 
 // Monitora a mudança do filtro de campos
@@ -73,8 +77,8 @@ function pesquisaDifusa(valor) {
       }
     }
   } else {
-    container.innerHTML = ''
-    exibir('')
+    container.innerHTML = '';
+    exibir('');
   }
 }
 
@@ -87,6 +91,7 @@ inputPesquisaCampos.addEventListener("input", (e) => {
   pesquisaDifusa(valor);
 });
 
+// Função que exibe os campos
 function exibir(filtro) {
   container.innerHTML = ''
   // Realiza uma requisição fetch e inicializa o Fuse.js
@@ -120,7 +125,9 @@ function exibir(filtro) {
       inicializaFuze(campos);
     });
 }
-exibir("")
+
+// Executa a função exibir
+exibir("");
 
 fetch(urlCampos)
 .then(res => res.json())

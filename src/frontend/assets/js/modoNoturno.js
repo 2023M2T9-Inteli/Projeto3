@@ -36,8 +36,8 @@ $(document).ready(function() {
       logoImage.src = '../assets/img/logoPbranco1.svg';
       logoAthena = document.getElementById('athena-logo');
       logoAthena.src = '../assets/img/athenaLogoBranco.svg';
-      voltarBotao = document.getElementById('voltar')
-      voltarBotao.src = '../assets/img/voltarBranco.svg'
+      voltarBotao = document.getElementById('voltar');
+      voltarBotao.src = '../assets/img/voltarBranco.svg';
     }
     
   // Verifica se o modo noturno esta presente ou não e define se ele será ligado ou não baseado nisso

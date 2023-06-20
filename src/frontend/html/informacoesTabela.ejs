@@ -13,6 +13,7 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
 <body>
+  <!-- Cabeçalho -->
   <header class="cabecalho">
     <nav class="cabecalho__navegacao">
       <input type="checkbox" class="cabecalho__navegacao__input" id="input-menu">
@@ -35,18 +36,25 @@
     </nav>
   </header>
 
+  <!-- Conteúdo principal -->
   <main class="principal-detalhes-tabelas" id="main">
+    <!-- Link para voltar para a tela inicial -->
     <a class="div-voltar" href="/">
       <img src="../assets/img/voltar.svg" alt="Botão voltar" class="cabecalho__div-voltar__imagem" id="voltar">
     </a>
 
+    <!-- Seção que evidencia o nome da tabela -->
     <section class="secao">
       <h1 class="secao__titulo" data-nome-tabela></h1>
     </section>
 
+    <!-- Div que é responsável pelo sistema de tabs -->
     <div class="secao__div-tabs">
+
+      <!-- Input para a tela de visão geral -->
       <input type="radio" name="tabs" class="secao-botoes__input" id="visao-geral" checked/>
       <label for="visao-geral" class="secao-botoes__label">Visão Geral</label>
+      <!-- Conteúdo de visão geral -->
       <section class="secao-conteudo">
         <section class="secao-conteudo__secao-descricao">
           <h2 class="secao-conteudo__secao-descricao__titulo">
@@ -189,8 +197,10 @@
             </section>
       </section>
 
+      <!-- Input para a tela de campos -->
       <input type="radio" name="tabs" class="secao-botoes__input" id="campos"/>
       <label for="campos" class="secao-botoes__label" id="campos-label">Campos</label>
+      <!-- Conteúdo de campos -->
       <section class="secao-conteudo">
         <section class="secao-conteudo-campos">
           <div class="secao-conteudo__div">
@@ -230,8 +240,10 @@
         </section>
       </section>
 
+      <!-- Input para a tela de feedback -->
       <input type="radio" name="tabs" class="secao-botoes__input" id="feedback"/>
       <label for="feedback" class="secao-botoes__label">Feedback</label>
+      <!-- Conteúdo de feedback -->
       <section class="secao-conteudo">
         <section class="secao-conteudo-feedback">
           <form method="post" action="/inserirfeedback">
@@ -267,15 +279,20 @@
             </form>
         </section>
       </section>
+
+      <!-- Botão que é responsável pela solicitação de acesso à tabela -->
       <input type="button" name="tabs" class="secao-botoes__input-acesso" value="Solicitar Acesso" id="acesso"/>
     </div>
   </main>
 
+  <!-- Rodapé -->
   <footer class="rodape">
     <img src="../assets/img/logoBancoPan.svg" alt="Logo do Banco PAN" class="rodape__imagem-logo-pan" id="pan-logo">
     <p class="rodape__paragrafo">&copy; Copyright 2023 - Desenvolvido por <a href="" class="rodape__paragrafo__link">Agilify</a></p>
     <img src="../assets/img/logoProjeto.svg" alt="Logo do grupo dos alunos do Inteli, o Project Athena" class="rodape__imagem-logo-grupo" id="athena-logo">
   </footer>
+
+  <!-- Scripts -->
   <script src="../assets/js/manipulaItens.js"></script>
   <script src="../assets/js/animacaoCabecalho.js"></script>
   <script src="../assets/js/preencheInformacoes.js" defer></script>

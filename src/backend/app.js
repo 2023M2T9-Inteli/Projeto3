@@ -25,9 +25,6 @@ const port = 1234;
 // Armazena o caminho do arquivo que contém o banco de dados do projeto
 const DBPATH = "./backend/data/db_projeto.db";
 
-// Cria e armazena uma conexão com o banco de dados SQLite no caminho especificado
-var caminho = new sqlite3.Database(DBPATH);
-
 // Define o EJS como o motor de renderização de páginas HTML
 app.set("view engine", "ejs");
 

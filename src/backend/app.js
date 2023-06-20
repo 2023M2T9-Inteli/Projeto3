@@ -151,7 +151,6 @@ app.post("/atualizar", urlencodedParser, (req, res) => {
   });
 });
 
-// SELECT nome_campo, descricao_campo, tipo_campo FROM variaveis
 
 /*********** ENDPOINTS DE CAMPOS ***********/
 // Endpoint que lista todos os campos que estao em uma tabela

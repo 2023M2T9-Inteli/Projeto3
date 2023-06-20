@@ -4,11 +4,11 @@
 <a href= "https://www.inteli.edu.br/"><img src="https://www.inteli.edu.br/wp-content/uploads/2021/08/20172028/marca_1-2.png" alt="Inteli - Instituto de Tecnologia e Liderança" border="0"></a>
 </p>
 
-#Project Athena
+# Project Athena
 
 ## Agilify
 
-## Integrantes: 
+## 🧑‍🎓 Integrantes:
 - <a href="https://www.linkedin.com/in/ana-luisa-goes-barbosa/">Ana Luisa Goes Barbosa
 </a>
 
@@ -32,9 +32,23 @@
 - <a href="https://www.linkedin.com/in/tommygoto/">Tommy Ken Ishimatsu goto
 </a>
 
+## 🧑‍🏫 Professores:
+### Orientador(a) 
+- <a href="https://www.linkedin.com/in/victorbarq/">Nome do integrante 1</a>
+### Instrutores
+- <a href="https://www.linkedin.com/in/fatima-toledo/">Fátima Toledo</a>
+- <a href="https://www.linkedin.com/in/flaviomarquesazevedo/">Flávio Azevedo</a> 
+- <a href="http://lattes.cnpq.br/6901974057937430">Henrique Paiva</a> 
+- <a href="https://www.linkedin.com/in/francisco-escobar/">Francisco Escobar</a>
+
+
 ## 📝 Descrição
 
 O problema apresentado pelo Banco PAN consiste na atual plataforma de pesquisa (PANPEDIA) não apresentar uma usabilidade eficaz, uma vez que apresenta uma ausência de interação com  o usuário, além de uma falta da qualidade e acessibilidade dos metadado. Dessa forma, os objetivos gerais deste projeto consistem em desenvolver uma aplicação web que permita que os colaboradores do Banco PAN consigam realizar buscas de bases de dados de forma mais intuitiva e acessível, através de uma interface digital agradável, de mecanismos que deixem tal pesquisa mais assertiva e da acessibilidade nos metadados.
+
+## 📝 LINK
+
+Clique <a href="https://www.linkedin.com/in/victorbarq/">AQUI</a> para ver o projeto funcionando. 
 
 ## 📁 Estrutura de pastas
 
@@ -81,22 +95,26 @@ npm start
 
 ## 🗃 Histórico de lançamentos
 
-* 0.2.1 - 25/01/2022
-    * Atualização de documentos (código do módulo permanece inalterado).
-* 0.2.0 - 15/01/2022
-    * Remove `setDefaultXYZ()`
-    * Adiciona `init()`
-* 0.1.1 - 11/01/2022
-    * Crash quando chama `baz()`
-* 0.1.0 - 10/01/2022
-    * O primeiro lançamento adequado
-    * Renomeia `foo()` para `bar()`
-* 0.0.1 - 01/01/2022
-    * Trabalho em andamento
+* 0.1. - 28/04/2023
+    * Estruturação das pastas
+* 0.2. - 12/05/2023
+    * Desenvolvimento da API
+    * Desenvolvimento do banco de dados
+* 0.3 - 26/05/2023
+    * Adição do front-end do cabeçalho, do rodapé, da tela inicial e da tela de pesquisa
+    * Adição de novos endpoints na API
+    * Início da integração do front-end com o back-end
+* 0.4 - 07/06/2023
+    * Adição do front-end da tela de visão geral, campos, feedback, favoritos
+    * Revisão do código da API
+    * Aprimoração do banco de dados 
+* 0.5 - 23/06/2022
+    * Integração entre o front-end e back-end completa
+    * Refinamento do código e da documentação
 
 ## 📋 Licença/License
 
-<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1"><p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc:attributionURL" href="https://github.com/Spidus/Teste_Final_1">MODELO GIT INTELI</a> by <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href="https://www.yggbrasil.com.br/vr">Inteli, Ana Luisa Goes Barbosa, Guilherme Ferreira Linhares, Paulo Octavio De Paula, Pedro Henrique Oliveira Lima, Pedro Morita Bannwart, Raphaela Guiland Ferraz, Thiago Goulart De Oliveira, Tommy Ken Ishimatsu Goto</a> is licensed under <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" style="display:inline-block;">Attribution 4.0 International</a>.</p>
+<p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><a property="dct:title" rel="cc :attributionURL" href="https://github.com/2023M2T9-Inteli/projeto3">Projeto Athena</a> por <a rel="cc:attributionURL dct:creator" property="cc:attributionName" href=" https://github.com/2023M2T9-Inteli/projeto3">INTELI, Ana Luisa Goes Barbosa, Guilherme Ferreira Linhares, Pedro Henrique Oliveira Lima, , Paulo Octavio De Paula, Pedro Morita Bannwart, Raphaela Guiland Ferraz, Thiago Goulart de Oliveira, Tommy Ken Ishimatsu goto</a> está licenciado sob o estilo <a href="http://creativecommons.org/licenses/by/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer" ="display:inline-block;">Attribution 4.0 International<img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/icons/cc. svg?ref=chooser-v1"><img style="height:22px!important;margin-left:3px;vertical-align:text-bottom;" src="https://mirrors.creativecommons.org/presskit/ icons/by.svg?ref=chooser-v1"></a></p>
 
 ## 🎓 Referências
 

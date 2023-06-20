@@ -129,17 +129,24 @@ function exibir(filtro) {
 // Executa a função exibir
 exibir("");
 
+// Adiciona os filtros possiveis para esta tabela
 fetch(urlCampos)
 .then(res => res.json())
 .then(data => {
+    // Armazena os filtros que já foram adicionados na tag Select
     var lastOptions = []
+    // Armazena o html que contem todas as options
     var options = '<option value="tipo-campo" class="secao-conteudo__div-pesquisa__select__opcao">Tipo Campo</option>'
 
     data.map(variaveis => {
+        // Caso o filtro ainda não tenha sido adicionada no array lastOptions
         if(!lastOptions.includes(variaveis.tipo_campo)) {
+            // Adiciona o html na string options
             options += `<option value="${variaveis.tipo_campo}" class="secao-conteudo__div-pesquisa__select__opcao">${variaveis.tipo_campo}</option>`
+            // Adiciona no array lastOptions
             lastOptions.push(variaveis.tipo_campo)
         }
     })
+    // Implementa a string Options como filha do input de filtros no documento html
     filtroInput.innerHTML = options
 }) 

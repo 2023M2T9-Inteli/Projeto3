@@ -57,12 +57,35 @@ $(document).ready(function () {
   });
 
   // Evento acionado quando o elemento com o ID "campos" é clicado
-  $(document).on('click', '#campos', function (event) {
+  $(document).on('click', '#campos', function(event) {
     // Verifica se a caixa de seleção está marcada
     if ($(this).is(':checked')) {
       // Atualiza a altura da tag main quando o input 'campos' for ativo
-      $('.principal-detalhes-tabelas').css('min-height', '305vh');
+      $('.secao-conteudo__secao-campos__lista').css('margin-bottom', '2rem');
+  
+      // Armazena o elemento <main>
+      var elemento = $('#main');
+  
+      // Obtém a altura do elemento <main>
+      var alturaElemento = elemento.prop('scrollHeight');
+      
+      // Aplica a altura calculada
+      elemento.css('height', alturaElemento + 'px');
     }
+  });
+
+  window.addEventListener('load', function() {
+
+  });
+  
+
+  window.addEventListener('load', function() {
+    // Obtém a altura do elemento <main>
+    var mainElement = document.getElementById('myMain');
+    var mainHeight = mainElement.offsetHeight;
+    
+    // Aplica a altura calculada
+    mainElement.style.height = mainHeight + 'px';
   });
 
   $(document).on('click', '#feedback', function (event) {

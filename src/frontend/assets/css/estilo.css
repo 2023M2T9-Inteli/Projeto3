@@ -797,7 +797,8 @@ input.secao-botoes__input:checked + .secao-botoes__label {
 .secao-conteudo__secao-campos__lista {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  margin-right: 6rem;
+  margin-left: 6rem;
 }
 
 .secao-conteudo__secao-campos__lista__item__div-tipo {

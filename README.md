@@ -120,4 +120,7 @@ npm start
 
 Aqui estão as referências usadas no projeto:
 
-1. <https://creativecommons.org/share-your-work/>
+1. <https://pt.wikipedia.org/w/index.php?title=Banco_PAN&oldid=65720861>
+2. <https://conteudos.xpi.com.br/renda-fixa/relatorios/banco-pan/>
+3. <https://this-person-does-not-exist.com/en>
+4. <https://uiuxtrend.com/sus-calculator/>

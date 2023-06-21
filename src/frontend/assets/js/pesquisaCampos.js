@@ -32,7 +32,8 @@ filtroInput.onchange = (event) => {
     ? (filtro = "")
     // caso contrario a variavel filtro deve possuir o mesmo valor do input select
     : (filtro = event.target.value);
-  exibir(filtro)
+  // Executa a função exibir
+  exibir(filtro);
 };
 
 // Inicializa o Fuse.js com os dados
@@ -47,7 +48,6 @@ function inicializaFuze(dados) {
   };
   // Inicializa o Fuse.js com os dados e configurações
   fuse = new Fuse(dados, opcoes);
-  console.log(fuse);
 }
 
 // Função que executa a pesquisa difusa
@@ -78,7 +78,10 @@ function pesquisaDifusa(valor) {
       }
     }
   } else {
+    // Caso o valor do campo de entrada seja vazio, exibe todos os campos
     container.innerHTML = '';
+
+    // Executa a função exibir
     exibir('');
   }
 }
@@ -129,17 +132,28 @@ function exibir(filtro) {
 // Executa a função exibir
 exibir("");
 
+// Realiza uma requisição fetch para obter os tipos de campos
 fetch(urlCampos)
 .then(res => res.json())
 .then(data => {
-    var lastOptions = []
-    var options = '<option value="tipo-campo" class="secao-conteudo__div-pesquisa__select__opcao">Tipo Campo</option>'
+    // Armazena os filtros que já foram adicionados na tag Select
+    var ultimaOpcao = [];
 
+    // Armazena o html que contem todas as opcões de filtros
+    var opcoes = '<option value="tipo-campo" class="secao-conteudo__div-pesquisa__select__opcao">Tipo Campo</option>';
+
+    // Mapeia os dados do campo para criar elementos de cartão e armazenar informações
     data.map(variaveis => {
-        if(!lastOptions.includes(variaveis.tipo_campo)) {
-            options += `<option value="${variaveis.tipo_campo}" class="secao-conteudo__div-pesquisa__select__opcao">${variaveis.tipo_campo}</option>`
-            lastOptions.push(variaveis.tipo_campo)
-        }
-    })
-    filtroInput.innerHTML = options
+      // Caso o filtro ainda não tenha sido adicionada no array ultimaOpcao
+      if(!ultimaOpcao.includes(variaveis.tipo_campo)) {
+        // Adiciona o html na string opções
+        opcoes += `<option value="${variaveis.tipo_campo}" class="secao-conteudo__div-pesquisa__select__opcao">${variaveis.tipo_campo}</option>`;
+        
+        // Adiciona no array ultimaOpcao o filtro que foi adicionado
+        ultimaOpcao.push(variaveis.tipo_campo);
+      }
+    });
+
+    // Implementa a string opções como filha do input de filtros no documento html
+    filtroInput.innerHTML = opcoes;
 }) 

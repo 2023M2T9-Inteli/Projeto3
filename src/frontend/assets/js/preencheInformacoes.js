@@ -30,7 +30,6 @@ fetch(url)
     // Obtém a tabela a partir dos dados retornados
     let tabela = data[0];
 
-    // Armazena o elemento do DOM que será preenchido com o ícone de dado sensível
     const divDado = document.querySelector('[data-icone-sensivel]');
     const dadoSensivel = document.querySelector('[data-sensivel]');
 

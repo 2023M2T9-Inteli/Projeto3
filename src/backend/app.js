@@ -259,7 +259,6 @@ app.post("/inserirfeedback", urlencodedParser, (req, res) => {
   res.render("html/feedbackEnviado");
   res.end();
 });
-
 //Endpoint para buscar os feedbacks
 app.get("/feedbacks", (req, res) => {
   res.statusCode = 200;

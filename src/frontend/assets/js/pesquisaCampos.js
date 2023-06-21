@@ -47,6 +47,7 @@ function inicializaFuze(dados) {
   };
   // Inicializa o Fuse.js com os dados e configurações
   fuse = new Fuse(dados, opcoes);
+  console.log(fuse);
 }
 
 // Função que executa a pesquisa difusa
@@ -120,7 +121,6 @@ function exibir(filtro) {
           };
         }
       });
-      filtroInput.innerHTML = options
       // Inicializa o Fuse.js com os dados do campo
       inicializaFuze(campos);
     });

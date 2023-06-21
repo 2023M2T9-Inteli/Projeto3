@@ -33,8 +33,8 @@
 </a>
 
 ## 🧑‍🏫 Professores:
-### Orientador 
-- <a href="https://www.linkedin.com/in/profclaudioandre/">Cláudio Fernando André</a>
+### Orientador(a) 
+- <a href="https://www.linkedin.com/in/victorbarq/">Nome do integrante 1</a>
 ### Instrutores
 - <a href="https://www.linkedin.com/in/fatima-toledo/">Fátima Toledo</a>
 - <a href="https://www.linkedin.com/in/flaviomarquesazevedo/">Flávio Azevedo</a> 

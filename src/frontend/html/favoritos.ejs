@@ -17,7 +17,6 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
   </head>
   <body>
-    <!-- Cabeçalho -->
     <header class="cabecalho" id="cabecaFav">
       <nav class="cabecalho__navegacao">
         <input type="checkbox" class="cabecalho__navegacao__input" id="input-menu">
@@ -39,45 +38,28 @@
         </ul>
       </nav>
     </header>
-
-    <!-- Link para voltar para a tela inicial -->
     <a class="div-voltar" href="/">
       <img src="../assets/img/voltar.svg" alt="Botão voltar" class="cabecalho__div-voltar__imagem-favoritos" id="voltar"/>
     </a>
-
-    <!-- Conteúdo principal -->
     <main class="favoritos-tela">
       <section id="secao-input" class="secao-pesquisa-favoritos">
-
-        <!-- Título da página -->
         <h1 class="secao-pesquisa__titulo titulo-favoritos">FAVORITOS</h1>
-        <!-- Seção que evidencia o input de pesquisa -->
-        <section class="secao-pesquisa__div-pesquisa">
+        <div class="secao-pesquisa__div-pesquisa">
           <div style="display: flex; flex-direction: row; margin-bottom: -2px;">
             <input id="input-pesquisa" type="text" placeholder="Digite sua pesquisa" class="secao-pesquisa__div-pesquisa__input" data-input-pesquisa>
-
-            <!-- Botão para filtros -->
             <button id="btn-filtro" class="secao-pesquisa__div-pesquisa__botao botao-filtro btn-filtro"> 
               <img id="Vazio" src="../assets/img/filtro.svg" alt="Ícone de filtro" class="secao-pesquisa__div-pesquisa__botao__imagem">
               <img id="Preenchido" src="../assets/img/filtroPreenchido.svg" style="display: none" alt="Ícone de filtro" class="secao-pesquisa__div-pesquisa__botao__imagem">
             </button>
-
-            <!-- Botão para favoritos -->
             <a id="btn-favoritos" class="secao-pesquisa__div-pesquisa__botao botao-favorito" href="/tabelasFavoritadas">
               <img src="../assets/img/favoritoPreenchido.svg" alt="Ícone de favoritos" class="secao-pesquisa__div-pesquisa__botao__imagem" height="30px" width="30px">
             </a>
           </div>
-
-          <!-- Seção que evidencia o filtro -->
           <div class="secao-pesquisa__div-filtro">
           </div>
-        </section>
+        </div>
       </section>
-
-      <!-- Seção que exibe as tabelas favoritadas -->
       <section class="secao-tabelas">
-
-        <!-- Lista de tabelas favoritadas -->
         <ul class="secao-tabelas__lista-favoritos" data-container>
             <template data-template>
             <li class="secao-tabelas__lista__item">
@@ -117,17 +99,24 @@
         </ul>
       </section>
     </main>
-
-    <!-- Rodapé -->
     <footer class="rodape rodape-favoritos">
-      <img src="../assets/img/logoBancoPan.svg" alt="Logo do Banco PAN" class="rodape__imagem-logo-pan" id="pan-logo"/>
-      <p class="rodape__paragrafo"> &copy; Copyright 2023 - Desenvolvido por
+      <img
+        src="../assets/img/logoBancoPan.svg"
+        alt="Logo do Banco PAN"
+        class="rodape__imagem-logo-pan"
+        id="pan-logo"
+      />
+      <p class="rodape__paragrafo">
+        &copy; Copyright 2023 - Desenvolvido por
         <a href="" class="rodape__paragrafo__link">Agilify</a>
       </p>
-      <img src="../assets/img/logoProjeto.svg" alt="Logo do grupo dos alunos do Inteli, o Project Athena" class="rodape__imagem-logo-grupo" id="athena-logo"/>
+      <img
+        src="../assets/img/logoProjeto.svg"
+        alt="Logo do grupo dos alunos do Inteli, o Project Athena"
+        class="rodape__imagem-logo-grupo"
+        id="athena-logo"
+      />
     </footer>
-
-    <!-- Scripts -->
     <script src="../assets/js/dadoSensivel.js"></script>
     <script src="../assets/js/animacaoCabecalho.js"></script>
     <script src="../assets/js/pesquisaFavoritos.js"></script>

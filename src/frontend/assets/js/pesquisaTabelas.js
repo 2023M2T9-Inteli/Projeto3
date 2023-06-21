@@ -25,9 +25,12 @@ var filtros = []
 // Armazena o id das tabelas favoritadas
 var listaFavoritos = [];
 
+// Assim que a página carregar será verificado se o input de pesquisa está vazio
 $(document).ready(() => { 
   // Armazena o estado da div que exibe os filtros (aberto ou fechado)
-  var toggle = true
+  var toggle = true;
+
+  // Quando o botão de filtro for clicado
   $(document).on('click', '#btn-filtro', () => {
     // Ao clicar, caso esteja fechado ele abre
     if (toggle){
@@ -37,46 +40,47 @@ $(document).ready(() => {
       $( ".secao-pesquisa__div-filtro" ).css( "display", "inline-grid");
       $( ".secao-pesquisa__div-filtro" ).css( "height", "150px");
 
-      toggle = !toggle
+      // Altera o estado da div
+      toggle = !toggle;
 
-    // caso esteja aberto ele fecha
+    // Caso esteja aberto ele fecha
     } else {
       $("#btn-filtro").addClass("btn-filtro ");
       $("#btn-filtro").removeClass("btn-filtro-ativado ");
-      $( ".secao-pesquisa__div-filtro" ).slideUp( 300 );
+      $(".secao-pesquisa__div-filtro" ).slideUp( 300 );
       
-      toggle = !toggle
+      // Altera o estado da div
+      toggle = !toggle;
     }
-  })
+  });
+
   // Ao selecionar um filtro
   $(document).on('click', '.filtro-button', (event) => {
-
-    // caso o array filtros não incluir o filtro selecionado
+    // Caso o array filtros não incluir o filtro selecionado
     if(!filtros.includes(event.target.textContent)) {
       // Adiciona a categoria ao array filtros
-      filtros.push(event.target.textContent)
+      filtros.push(event.target.textContent);
 
       // Altera as cores do botão
-      $(`#${event.target.id}`).css('background-color', '#4DA9FF')
-      $(`#${event.target.id}`).css('color', '#FFFFFF')
+      $(`#${event.target.id}`).css('background-color', '#4DA9FF');
+      $(`#${event.target.id}`).css('color', '#FFFFFF');
 
       // Realiza a pesquisa novamente
-      pesquisaDifusa($('#input-pesquisa').val(), 1)
+      pesquisaDifusa($('#input-pesquisa').val(), 1);
     } else{
       // Remove a categoria ao array filtros
-      filtros.splice (filtros.indexOf(event.target.textContent), 1)
+      filtros.splice (filtros.indexOf(event.target.textContent), 1);
 
       // Altera as cores do botão
-      $(`#${event.target.id}`).css('background-color', 'transparent')
+      $(`#${event.target.id}`).css('background-color', 'transparent');
       if ($('body').hasClass('dark-mode')) {
-        $(`#${event.target.id}`).css('color', 'var(--azul)')
+        $(`#${event.target.id}`).css('color', 'var(--azul)');
       } else {
-        $(`#${event.target.id}`).css('color', '#4DA9FF')
+        $(`#${event.target.id}`).css('color', '#4DA9FF');
       }
-      
 
       // Realiza a pesquisa novamente
-      pesquisaDifusa($('#input-pesquisa').val(), 1)
+      pesquisaDifusa($('#input-pesquisa').val(), 1);
     }
   })
 })
@@ -112,8 +116,9 @@ function pesquisaDifusa(valor, pagina) {
 
   // Executa o "fuzzy search" e filtra de acordo com o array filtros
   const resultados = fuse.search(valor).filter(resultado => {
+    // Verifica se o array filtros inclui a categoria do item
     if (filtros.includes(resultado.item.categoria) || filtros[0] === undefined){
-      return true
+      return true;
     }
   });
 
@@ -139,14 +144,19 @@ function pesquisaDifusa(valor, pagina) {
 
   // Armazena os elementos visíveis e o número de cartões mostrados
   const visibilidadeItem = new Set();
+
+  // Armazena o número de cartões mostrados
   let cartoesMostrados = 0;
 
   // Verifica se o número de resultados é menor ou igual ao cartoesMaximos
   if (resultadosOrdenados.length <= cartoesMaximos) {
+    // Lista todos os resultados
     resultadosOrdenados.forEach(({ item }) => {
+      // Verifica se o item existe
       if (!item) {
         return;
       }
+
       // Remove a classe "hide" do elemento
       item.element.classList.remove("hide");
 
@@ -199,7 +209,9 @@ function pesquisaDifusa(valor, pagina) {
 
 // Adiciona um "EventListener" colocando um click a cada item do link, que são os botões da paginação
 paginationLinks.forEach((link) => {
+  // Quando o botão for clicado, a função será executada
   link.addEventListener("click", (e) => {
+    // Previne o comportamento padrão do link
     e.preventDefault();
     // Obtém o número da página
     const pagina = parseInt(link.textContent);
@@ -264,6 +276,7 @@ fetch("/favoritos/ids")
       dadoSensivel.value = tabela.dado_sensivel;
       verificacao.value = tabela.verificacao_governanca;
       container.append(card);
+
       // Verifica se a tabela é sensível e exibe o ícone
       if(dadoSensivel.value == "S"){
         divDado.style.display = "block";
@@ -278,11 +291,11 @@ fetch("/favoritos/ids")
         divVerificacao.style.display = "none";
       }
 
-
       // Verifica se a tabela é favorita e, caso seja, exibe o ícone de favorito preenchido
       if(listaFavoritos.includes(tabela.id)){
         favorito.src = "../assets/img/favoritoPreenchido.svg";
       }
+
       // Retorna um objeto com as informações da tabela
       return {
         nome: tabela.nome,
@@ -299,14 +312,17 @@ fetch("/favoritos/ids")
         element: card
       };
     });
+
     // Inicializa o Fuse.js com os dados da tabela
     inicializaFuze(tabelas);
+
     // Exibe todos os resultados em uma única página se a quantidade for menor ou igual ao cartoesMaximos
     if (tabelas.length <= cartoesMaximos) {
       pesquisaDifusa("", 1);
     }
   })
   .catch((error) => {
+    
     // Tratamento de erros para qualquer um dos fetches
     console.error(error);
   });

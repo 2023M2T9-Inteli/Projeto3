@@ -656,7 +656,7 @@ input.secao-botoes__input:checked + .secao-botoes__label {
 .secao-conteudo__secao-detalhes__div__input, .secao-conteudo__secao-responsavel__div__label__input, .secao-conteudo__secao-tecnico__div__label__input, .secao-conteudo__secao-tecnico__div-atualizacao__input {
   background: none;
   border: none;
-  width: 320px;
+  width: 180px;
   color: var(--preto-texto);
   outline: none;
 }

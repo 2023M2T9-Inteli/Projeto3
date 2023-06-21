@@ -12,12 +12,10 @@ let fuse;
 // Armazena os filtros selecionados pelo usuário
 var filtros = [];
 
-// Assim que a página carregar será verificado se o input de pesquisa está vazio
 $(document).ready(() => {
-  // Caso esteja vazio, exibe todos os favoritos
   if($("#input-pesquisa") == "") {
     container.innerHTML = '';
-    exibir();
+    exibir()
   } 
 
   // Armazena o estado da div que exibe os filtros (aberto ou fechado)
@@ -55,7 +53,7 @@ $(document).ready(() => {
 
       // Realiza a pesquisa novamente
       $("#input-pesquisa").val() !== ""
-        pesquisaDifusa($("#input-pesquisa").val());
+        pesquisaDifusa($("#input-pesquisa").val())
     } else {
       // Remove a categoria ao array filtros
       filtros.splice(filtros.indexOf(event.target.textContent), 1);
@@ -66,7 +64,7 @@ $(document).ready(() => {
 
       // Realiza a pesquisa novamente
       $("#input-pesquisa").val() !== ""
-        pesquisaDifusa($("#input-pesquisa").val());
+        pesquisaDifusa($("#input-pesquisa").val())
     }
   });
 });
@@ -90,7 +88,6 @@ function pesquisaDifusa(valor) {
   if (valor !== "") {
     // Executa o "fuzzy search" e filtra de acordo com o array filtros
     const resultados = fuse.search(valor).filter((resultado) => {
-      // Verifica se o array filtros inclui a categoria do resultado
       if (
         filtros.includes(resultado.item.categoria) ||
         filtros[0] === undefined
@@ -99,11 +96,9 @@ function pesquisaDifusa(valor) {
       }
     });
 
-    // Verifica se o array filtros está vazio
     if (filtros[0] !== undefined && valor === "") {
       filtros.map(filtro => {
         let teste = fuse.search(filtro).filter(resultado => {
-          // Verifica se o array filtros inclui a categoria do resultado
           if (
             filtros.includes(resultado.item.categoria) ||
             filtros[0] === undefined
@@ -111,10 +106,12 @@ function pesquisaDifusa(valor) {
             return true;
           }
         }).map(search => {
-          resultados.push(search);
-          console.log(resultados);
-        });
-      });
+          resultados.push(search)
+          console.log(resultados)
+        })
+
+        console.log(teste);
+      })
     }
 
     // Armazena os elementos visíveis
@@ -138,9 +135,8 @@ function pesquisaDifusa(valor) {
       }
     }
   } else {
-    // Caso o campo de pesquisa esteja vazio, exibe todos os favoritos 
     container.innerHTML = '';
-    exibir();
+    exibir()
   }
 }
 
@@ -210,4 +206,4 @@ function exibir () {
     });
 }
 
-exibir();
+exibir()

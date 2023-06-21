@@ -48,7 +48,7 @@ O problema apresentado pelo Banco PAN consiste na atual plataforma de pesquisa (
 
 ## 📝 LINK
 
-Clique <a href="https://www.linkedin.com/in/victorbarq/">AQUI</a> para ver o projeto funcionando. 
+Clique <a href="https://xkmskn-1234.csb.app/">AQUI</a> para ver o projeto funcionando. 
 
 ## 📁 Estrutura de pastas
 

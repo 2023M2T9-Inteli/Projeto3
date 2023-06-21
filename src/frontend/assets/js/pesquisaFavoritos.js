@@ -12,14 +12,20 @@ let fuse;
 // Armazena os filtros selecionados pelo usuário
 var filtros = [];
 
+// Assim que a página carregar será verificado se o input de pesquisa está vazio
 $(document).ready(() => {
+  // Caso esteja vazio, exibe todos os favoritos
   if($("#input-pesquisa") == "") {
     container.innerHTML = '';
-    exibir()
+
+    // Executa a função exibir
+    exibir();
   } 
 
   // Armazena o estado da div que exibe os filtros (aberto ou fechado)
   var toggle = true;
+
+  // Quando o botão de filtro for clicado
   $(document).on("click", "#btn-filtro", () => {
     // Ao clicar, caso esteja fechado ele abre
     if (toggle) {
@@ -29,20 +35,23 @@ $(document).ready(() => {
       $( ".secao-pesquisa__div-filtro" ).css( "display", "inline-grid");
       $( ".secao-pesquisa__div-filtro" ).css( "height", "150px");
 
+      // Altera o estado da div
       toggle = !toggle;
 
-      // caso esteja aberto ele fecha
+      // Caso esteja aberto ele fecha
     } else {
       $("#btn-filtro").addClass("btn-filtro ");
       $("#btn-filtro").removeClass("btn-filtro-ativado ");
       $( ".secao-pesquisa__div-filtro" ).slideUp( 300 );
 
+      // Altera o estado da div
       toggle = !toggle;
     }
   });
+
   // Ao selecionar um filtro
   $(document).on("click", ".filtro-button", (event) => {
-    // caso o array filtros não incluir o filtro selecionado
+    // Caso o array filtros não incluir o filtro selecionado
     if (!filtros.includes(event.target.textContent)) {
       // Adiciona a categoria ao array filtros
       filtros.push(event.target.textContent);
@@ -53,7 +62,9 @@ $(document).ready(() => {
 
       // Realiza a pesquisa novamente
       $("#input-pesquisa").val() !== ""
-        pesquisaDifusa($("#input-pesquisa").val())
+
+        // Executa a pesquisa difusa com o valor do input de pesquisa
+        pesquisaDifusa($("#input-pesquisa").val());
     } else {
       // Remove a categoria ao array filtros
       filtros.splice(filtros.indexOf(event.target.textContent), 1);
@@ -64,7 +75,8 @@ $(document).ready(() => {
 
       // Realiza a pesquisa novamente
       $("#input-pesquisa").val() !== ""
-        pesquisaDifusa($("#input-pesquisa").val())
+        // Executa a pesquisa difusa com o valor do input de pesquisa
+        pesquisaDifusa($("#input-pesquisa").val());
     }
   });
 });
@@ -79,6 +91,7 @@ function inicializaFuze(dados) {
     ignoreLocation: true,
     minMatchCharLength: 2,
   };
+
   // Inicializa o Fuse.js com os dados e configurações
   fuse = new Fuse(dados, opcoes);
 }
@@ -88,6 +101,7 @@ function pesquisaDifusa(valor) {
   if (valor !== "") {
     // Executa o "fuzzy search" e filtra de acordo com o array filtros
     const resultados = fuse.search(valor).filter((resultado) => {
+      // Verifica se o array filtros inclui a categoria do resultado
       if (
         filtros.includes(resultado.item.categoria) ||
         filtros[0] === undefined
@@ -96,22 +110,25 @@ function pesquisaDifusa(valor) {
       }
     });
 
+    // Verifica se o array filtros está vazio
     if (filtros[0] !== undefined && valor === "") {
+      // Mapeia os filtros
       filtros.map(filtro => {
+        // Executa o "fuzzy search" e filtra de acordo com o array filtros
         let teste = fuse.search(filtro).filter(resultado => {
+          // Verifica se o array filtros inclui a categoria do resultado
           if (
             filtros.includes(resultado.item.categoria) ||
             filtros[0] === undefined
           ) {
             return true;
           }
+        // Mapeia os resultados
         }).map(search => {
+          // Adiciona os resultados ao array resultados
           resultados.push(search)
-          console.log(resultados)
-        })
-
-        console.log(teste);
-      })
+        });
+      });
     }
 
     // Armazena os elementos visíveis
@@ -134,9 +151,13 @@ function pesquisaDifusa(valor) {
         favorito.element.classList.add("hide");
       }
     }
+    // Caso o valor do campo de entrada esteja vazio
   } else {
+    // Exibe todos os favoritos
     container.innerHTML = '';
-    exibir()
+
+    // Executa a função exibir
+    exibir();
   }
 }
 
@@ -156,6 +177,7 @@ function exibir () {
     .then((data) => {
       // Mapeia os dados de favoritos para criar elementos de cartão e armazenar informações
       favoritos = data.map((favoritos) => {
+        // Verifica se o array filtros inclui a categoria do resultado
         if (filtros.includes(favoritos.categoria) || filtros[0] === undefined) {
           // Preenche os elementos do DOM com as informações da tabela
           const card = template.content.cloneNode(true).children[0];
@@ -201,9 +223,11 @@ function exibir () {
           };
         }
       });
+      
       // Inicializa o Fuse.js com os dados de favoritos
       inicializaFuze(favoritos);
     });
 }
 
-exibir()
+// Executa a função exibir
+exibir();

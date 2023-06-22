@@ -54,8 +54,14 @@ Clique <a href="https://kp6pnx-1234.csb.app/">AQUI</a> para ver o projeto funcio
 
 |--> documentos<br>
   &emsp;| --> outros <br>
-  &emsp;| T9_G3_V03_Web_application_document.pdf<br>
-  &emsp;| T9_G3_V03_Web_application_document.docx<br>
+  &emsp;| T9_G3_V1.8_Web_application_document.pdf<br>
+  &emsp;| T9_G3_V1.8_Web_application_document.docx<br>
+  &emsp;| T9_G3_V2.1_Web_application_document.pdf<br>
+  &emsp;| T9_G3_V2.1_Web_application_document.docx<br>
+  &emsp;| T9_G3_V2.2_Web_application_document.pdf<br>
+  &emsp;| T9_G3_V2.2_Web_application_document.docx<br>
+  &emsp;| T9_G3_V2.4_Web_application_document.pdf<br>
+  &emsp;| T9_G3_V2.4_Web_application_document.docx<br>
 |--> imagens<br>
 |--> src<br>
   &emsp;|--> Backend<br>

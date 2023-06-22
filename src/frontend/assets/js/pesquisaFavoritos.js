@@ -189,11 +189,17 @@ function exibir () {
           const divDado = card.querySelector("[data-icone-sensivel]");
           const dadoSensivel = card.querySelector("[data-sensivel]");
           const id = card.querySelector("[data-id-tabela]");
+          const idBd = card.querySelector("[data-id-bd]");
           const idTabelaFavoritada = card.querySelector(
             "[data-id-tabela-favoritada]"
           );
+          const idBdFavoritada = card.querySelector(
+            "[data-id-bd-favoritada]"
+          );
           id.value = favoritos.id_tabela;
+          idBd.value = favoritos.id_bd;
           idTabelaFavoritada.value = favoritos.id_tabela;
+          idBdFavoritada.value = favoritos.id_bd;
           tipo.textContent = favoritos.tipo;
           nome.textContent = favoritos.nome;
           desc.textContent = favoritos.descricao;

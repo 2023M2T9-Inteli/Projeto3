@@ -213,7 +213,7 @@ app.get("/favoritos", (req, res) => {
   // Define o cabeçalho da resposta
   res.setHeader("Access-Control-Allow-Origin", "*");
   // Define o código SQL que será executado
-  const sql = `SELECT favorito.id_tabela, tabela.id, tabela.nome, tabela.descricao, tabela.categoria, tabela.database, tabela.dado_sensivel
+  const sql = `SELECT favorito.id_tabela, tabela.id, tabela.id_bd, tabela.nome, tabela.descricao, tabela.categoria, tabela.database, tabela.dado_sensivel
   FROM tabela
   INNER JOIN favorito ON tabela.id = favorito.id_tabela`;
   // Executa o comando SQL

@@ -85,16 +85,21 @@ Aqui encontram-se todas as instruções necessárias para a instalação de todo
 
 1.  Baixar e instalar o node.js:  [https://nodejs.org/pt-br/](https://nodejs.org/pt-br/) (versão 16.15.1 LTS)
 2. Clone o repositório em questão.
-3.  No modo administrador, abra o "prompt de comando" ou o "terminal" e, após,  abra a pasta "src/backend" no diretório raiz do repositório clonado e digite o segundo comando:
+3.  No modo administrador, abra o "prompt de comando" ou o "terminal" e, após, execute o comando:  
 
 ```sh
 npm install
 ```
+4. Depois, para entrar na pasta de execução, execute o comando:
 
+```
+cd .\src
+
+```
 Isso instalará todas as dependências definidas no arquivo <b>package.json</b> que são necessárias para rodar o projeto. Agora o projeto já está pronto para ser modificado. Caso ainda deseje iniciar a aplicação, digite o comando abaixo no terminal:
 
 ```sh
-npm start
+node ./backend/app.js
 ```
 5. Agora você pode acessar a aplicação através do link http://localhost:1234/
 6. O servidor está online.
